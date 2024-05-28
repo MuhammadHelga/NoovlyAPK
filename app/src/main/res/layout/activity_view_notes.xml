@@ -7,31 +7,60 @@
     android:layout_height="match_parent"
     tools:context=".viewNovels">
 
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="0dp"
+        android:layout_height="350dp"
+        android:padding="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/bg_book" />
+
     <TextView
         android:id="@+id/vTittle"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="30dp"
-        android:layout_marginTop="84dp"
         android:layout_marginEnd="30dp"
+        android:fontFamily="@font/poppins_semibold"
         android:gravity="center"
-        android:text="TITTLE"
-        android:textSize="34sp"
-        android:textStyle="bold"
+        android:text="Overthinking is My Hobby, and I Hate It"
+        android:textColor="#112D4E"
+        android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/vAva" />
+        app:layout_constraintTop_toBottomOf="@+id/imageView" />
+
+    <TextView
+        android:id="@+id/vSyn"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="30dp"
+        android:fontFamily="@font/poppins"
+        android:gravity="center"
+        android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque semper pellentesque ligula vel congue. Nulla facilisi. Sed eget varius metus. Vivamus quis lorem facilisis, condimentum purus nec, efficitur enim. Vivamus bibendum orci lorem, ut molestie nulla facilisis nec. Donec et."
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/vDesc" />
 
     <TextView
         android:id="@+id/vDesc"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="30dp"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="8dp"
         android:layout_marginEnd="30dp"
-        android:text="Penulis"
-        android:textSize="20sp"
+        android:fontFamily="@font/poppins_medium"
+        android:gravity="center"
+        android:text="Alvi Syahrin"
+        android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
@@ -42,8 +71,9 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="40dp"
-        android:layout_marginTop="148dp"
+        android:layout_marginTop="104dp"
         android:layout_marginEnd="40dp"
+        android:backgroundTint="#3F72AF"
         android:text="Update Note"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -55,47 +85,39 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="40dp"
-        android:layout_marginTop="36dp"
+        android:layout_marginTop="10dp"
         android:layout_marginEnd="40dp"
+        android:layout_marginBottom="60dp"
+        android:backgroundTint="#112D4E"
         android:text="Keluar"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btn_update"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintVertical_bias="1.0" />
 
     <ImageView
         android:id="@+id/vAva"
-        android:layout_width="150dp"
-        android:layout_height="150dp"
-        android:layout_marginTop="80dp"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_width="200dp"
+        android:layout_height="0dp"
+        android:padding="30dp"
+        android:scaleType="centerCrop"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView"
+        app:layout_constraintEnd_toEndOf="@+id/imageView"
         app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/imageView"
+        app:layout_constraintTop_toTopOf="@+id/imageView"
         tools:srcCompat="@tools:sample/avatars" />
-
-    <TextView
-        android:id="@+id/vSyn"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="30dp"
-        android:layout_marginTop="40dp"
-        android:layout_marginEnd="30dp"
-        android:text="Sinopsis"
-        android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/vDesc" />
 
     <LinearLayout
         android:id="@+id/lin_upt"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:background="@drawable/bg"
+        android:background="#F9F7F7"
         android:orientation="vertical"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
         android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -108,6 +130,7 @@
             android:layout_height="200dp"
             android:layout_gravity="center"
             android:layout_marginTop="30dp"
+            android:scaleType="centerCrop"
             tools:srcCompat="@tools:sample/avatars" />
 
         <TextView
@@ -116,20 +139,27 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
             android:layout_marginTop="30dp"
+            android:fontFamily="@font/poppins_bold"
             android:text="Judul"
+            android:textColor="#112D4E"
             android:textSize="24sp" />
 
         <EditText
             android:id="@+id/upt_tittle"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="50dp"
             android:layout_marginStart="10dp"
             android:layout_marginTop="20dp"
             android:layout_marginEnd="10dp"
+            android:background="@drawable/round_form"
             android:ems="10"
+            android:fontFamily="@font/poppins_medium"
             android:hint="Ubah Judul"
             android:inputType="text"
-            android:textSize="24sp" />
+            android:paddingLeft="30dp"
+            android:textColor="#80112D4E"
+            android:textColorHint="#80112D4E"
+            android:textSize="16sp" />
 
         <TextView
             android:id="@+id/textView2"
@@ -137,21 +167,28 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
             android:layout_marginTop="30dp"
+            android:fontFamily="@font/poppins_bold"
             android:text="Penulis"
+            android:textColor="#112D4E"
             android:textSize="24sp" />
 
         <EditText
             android:id="@+id/upt_desc"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="50dp"
             android:layout_marginStart="10dp"
             android:layout_marginTop="20dp"
             android:layout_marginEnd="10dp"
+            android:background="@drawable/round_form"
             android:cursorVisible="false"
             android:ems="10"
+            android:fontFamily="@font/poppins_medium"
             android:hint="Ubah Penulis"
             android:inputType="text"
-            android:textSize="24sp"
+            android:paddingLeft="30dp"
+            android:textColor="#80112D4E"
+            android:textColorHint="#80112D4E"
+            android:textSize="16sp"
             android:visibility="visible" />
 
         <TextView
@@ -160,20 +197,28 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
             android:layout_marginTop="30dp"
+            android:fontFamily="@font/poppins_bold"
             android:text="Sinopsis"
+            android:textColor="#112D4E"
             android:textSize="24sp" />
 
         <EditText
             android:id="@+id/upt_syn"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="50dp"
             android:layout_marginStart="10dp"
+            android:layout_marginLeft="30dp"
             android:layout_marginTop="20dp"
             android:layout_marginEnd="10dp"
+            android:background="@drawable/round_form"
             android:ems="10"
+            android:fontFamily="@font/poppins_medium"
             android:hint="Ubah Sinopsis"
             android:inputType="text"
-            android:textSize="24sp" />
+            android:paddingLeft="30dp"
+            android:textColor="#80112D4E"
+            android:textColorHint="#80112D4E"
+            android:textSize="16sp" />
 
         <Button
             android:id="@+id/btUp"
@@ -182,7 +227,10 @@
             android:layout_marginStart="20dp"
             android:layout_marginTop="100dp"
             android:layout_marginEnd="20dp"
+            android:backgroundTint="#112D4E"
+            android:fontFamily="@font/poppins_semibold"
             android:text="Update"
+            android:textColor="#F9F7F7"
             android:textSize="20sp" />
 
         <Button
@@ -193,6 +241,8 @@
             android:layout_marginTop="10dp"
             android:layout_marginEnd="20dp"
             android:layout_marginBottom="10dp"
+            android:backgroundTint="#DF3535"
+            android:fontFamily="@font/poppins_semibold"
             android:text="Batal Update"
             android:textSize="20sp" />
 

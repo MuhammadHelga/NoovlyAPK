@@ -18,31 +18,41 @@
 
         <ImageView
             android:id="@+id/ava"
-            android:layout_width="170dp"
+            android:layout_width="match_parent"
             android:layout_height="250dp"
             android:layout_gravity="center_horizontal"
+            android:layout_marginLeft="12dp"
             android:layout_marginTop="5dp"
+            android:layout_marginRight="12dp"
+            android:background="@drawable/bg_book"
+            android:scaleType="centerCrop"
             tools:srcCompat="@tools:sample/avatars" />
 
         <TextView
             android:id="@+id/showJudul"
-            android:layout_width="170dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
+            android:layout_marginLeft="12dp"
             android:layout_marginTop="5dp"
-            android:fontFamily="@font/poppins_semibold"
+            android:layout_marginRight="12dp"
+            android:fontFamily="@font/poppins_bold"
             android:gravity="center_horizontal"
             android:text="TextView"
+            android:textColor="#112D4E"
             android:textSize="24sp" />
 
         <ImageButton
             android:id="@+id/btn_delete"
-            android:layout_width="170dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
+            android:layout_marginLeft="12dp"
             android:layout_marginTop="10dp"
+            android:layout_marginRight="12dp"
+            android:backgroundTint="#DF3535"
             android:contentDescription="null"
-            app:srcCompat="@android:drawable/btn_dialog" />
+            app:srcCompat="@drawable/delete" />
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

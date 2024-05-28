@@ -11,7 +11,7 @@
         android:id="@+id/bar"
         android:layout_width="match_parent"
         android:layout_height="70dp"
-        android:background="@drawable/bg_bar"
+        android:background="#3F72AF"
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -34,11 +34,11 @@
             android:layout_width="210dp"
             android:layout_height="70dp"
             android:layout_weight="1"
-            android:fontFamily="@font/poppins_semibold"
+            android:fontFamily="@font/poppins_medium"
             android:gravity="center_vertical"
             android:text=" User!"
             android:textColor="#F9F7F7"
-            android:textSize="24sp" />
+            android:textSize="20sp" />
 
         <ImageButton
             android:id="@+id/btn_keluar"
@@ -46,7 +46,7 @@
             android:layout_height="70dp"
             android:layout_marginEnd="10dp"
             android:layout_weight="1"
-            android:background="@drawable/bg_bar"
+            android:background="#3F72AF"
             android:contentDescription="null"
             app:srcCompat="@drawable/exit" />
 
@@ -56,8 +56,7 @@
         android:id="@+id/linearLayout"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_marginTop="8dp"
-        android:background="@drawable/bg_sub_bar"
+        android:background="#DBE2EF"
         android:orientation="horizontal"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/bar">
@@ -68,9 +67,11 @@
             android:layout_height="match_parent"
             android:layout_marginStart="10dp"
             android:layout_weight="1"
+            android:fontFamily="@font/poppins_bold"
             android:gravity="center_vertical"
+            android:paddingLeft="21dp"
             android:text="Daftar Novel"
-            android:textColor="#F9F7F7"
+            android:textColor="#112D4E"
             android:textSize="24sp" />
 
         <ImageButton
@@ -81,6 +82,7 @@
             android:layout_weight="1"
             android:backgroundTint="#00FFFFFF"
             android:contentDescription="null"
+            android:paddingRight="25dp"
             android:src="@drawable/add" />
     </LinearLayout>
 
@@ -89,6 +91,8 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:padding="5dp"
+        android:paddingLeft="21dp"
+        android:paddingRight="21dp"
         android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -128,6 +132,7 @@
             android:layout_height="150dp"
             android:layout_gravity="center"
             android:layout_marginTop="20dp"
+            android:scaleType="centerCrop"
             android:src="@drawable/add_cover" />
 
         <EditText
@@ -139,11 +144,12 @@
             android:layout_marginEnd="10dp"
             android:background="@drawable/round_form"
             android:ems="10"
+            android:fontFamily="@font/poppins_medium"
             android:hint="Judul"
             android:inputType="text"
             android:minHeight="48dp"
             android:paddingStart="20dp"
-            android:textSize="20sp" />
+            android:textSize="16sp" />
 
         <EditText
             android:id="@+id/add_penulis"
@@ -154,11 +160,12 @@
             android:layout_marginEnd="10dp"
             android:background="@drawable/round_form"
             android:ems="10"
+            android:fontFamily="@font/poppins_medium"
             android:hint="Penulis"
             android:inputType="text"
             android:minHeight="48dp"
             android:paddingStart="20dp"
-            android:textSize="20sp" />
+            android:textSize="16sp" />
 
         <EditText
             android:id="@+id/add_sinopsis"
@@ -169,11 +176,12 @@
             android:layout_marginEnd="10dp"
             android:background="@drawable/round_form"
             android:ems="10"
+            android:fontFamily="@font/poppins_medium"
             android:hint="Sinopsis"
             android:inputType="text"
             android:minHeight="48dp"
             android:paddingStart="20dp"
-            android:textSize="20sp" />
+            android:textSize="16sp" />
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/btn_submit"
