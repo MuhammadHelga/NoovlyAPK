@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "798270223643",
+    "project_id": "prakpam-ef343",
+    "storage_bucket": "prakpam-ef343.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:798270223643:android:1cc9ac6c0e9d987d49cfbe",
+        "android_client_info": {
+          "package_name": "com.example.modul9"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBNzjCRK0cdRZD3rJDGEMXsTwVS-94GoIE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:798270223643:android:1bef2e6b5a36aa1b49cfbe",
+        "android_client_info": {
+          "package_name": "com.example.tugasmodul6"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBNzjCRK0cdRZD3rJDGEMXsTwVS-94GoIE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
