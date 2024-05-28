@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/bg"
+    android:background="@color/white"
     tools:context=".HomePage">
 
     <LinearLayout
@@ -91,8 +91,10 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:padding="5dp"
+        android:layout_marginLeft="5dp"
         android:paddingLeft="21dp"
         android:paddingRight="21dp"
+        android:layout_marginTop="10dp"
         android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

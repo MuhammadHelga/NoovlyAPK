@@ -71,36 +71,33 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="40dp"
-        android:layout_marginTop="104dp"
+        android:layout_marginTop="728dp"
         android:layout_marginEnd="40dp"
         android:backgroundTint="#3F72AF"
         android:text="Update Note"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/vSyn" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/btn_ext"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="40dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="8dp"
         android:layout_marginEnd="40dp"
-        android:layout_marginBottom="60dp"
         android:backgroundTint="#112D4E"
         android:text="Keluar"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_update"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintTop_toBottomOf="@+id/btn_update" />
 
     <ImageView
         android:id="@+id/vAva"
-        android:layout_width="200dp"
-        android:layout_height="0dp"
+        android:layout_width="250dp"
+        android:layout_height="350dp"
         android:padding="30dp"
         android:scaleType="centerCrop"
         app:layout_constraintBottom_toBottomOf="@+id/imageView"
