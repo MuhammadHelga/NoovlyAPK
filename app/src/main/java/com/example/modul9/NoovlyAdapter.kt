@@ -44,7 +44,8 @@ class NoteAdapter(
             val intent = Intent(context, viewNovels::class.java)
             intent.putExtra("id", currentNote.id)
             intent.putExtra("title", currentNote.title)
-            intent.putExtra("description", currentNote.description)
+            intent.putExtra("penulis", currentNote.penulis)
+            intent.putExtra("sinopsis", currentNote.sinopsis)
             intent.putExtra("avatar", currentNote.avatar)
             context.startActivity(intent)
         }

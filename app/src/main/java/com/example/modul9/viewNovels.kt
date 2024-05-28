@@ -35,12 +35,14 @@ class viewNovels : AppCompatActivity() {
     private var noteId: String? = null
     private lateinit var notedb: DatabaseReference
     private lateinit var viewTitle: TextView
-    private lateinit var viewDesc: TextView
+    private lateinit var viewPenulis: TextView
+    private lateinit var viewSyn: TextView
     private  lateinit var viewAva: ImageView
     private lateinit var updateNote: Button
     private lateinit var linearUpdate: LinearLayout
     private lateinit var upTitle: EditText
     private lateinit var upDesc: EditText
+    private lateinit var upSyn: EditText
     private lateinit var upAva: ImageView
     private lateinit var btnUpdateNote: Button
     private lateinit var btnCloseUpdate: Button
@@ -53,24 +55,28 @@ class viewNovels : AppCompatActivity() {
         val bundle: Bundle? = intent.extras
 
         viewTitle = findViewById(R.id.vTittle)
-        viewDesc = findViewById(R.id.vDesc)
+        viewPenulis = findViewById(R.id.vDesc)
+        viewSyn = findViewById(R.id.vSyn)
         viewAva = findViewById(R.id.vAva)
         updateNote = findViewById(R.id.btn_update)
         val keluar: Button = findViewById(R.id.btn_ext)
         linearUpdate = findViewById(R.id.lin_upt)
         upTitle = findViewById(R.id.upt_tittle)
         upDesc = findViewById(R.id.upt_desc)
+        upSyn = findViewById(R.id.upt_syn)
         upAva = findViewById(R.id.upt_Ava)
         btnUpdateNote = findViewById(R.id.btUp)
         btnCloseUpdate =  findViewById(R.id.upCancel)
 
         val title = bundle!!.getString("title")
-        val desc = bundle.getString("description")
+        val desc = bundle.getString("penulis")
+        val syn = bundle.getString("sinopsis")
         val avatar = bundle.getString("avatar")
         noteId = bundle.getString("id")
 
         viewTitle.text = title
-        viewDesc.text = desc
+        viewPenulis.text = desc
+        viewSyn.text = syn
         Glide.with(this).load(avatar).into(viewAva)
 
         notedb = FirebaseDatabase.getInstance("https://prakpam-ef343-default-rtdb.asia-southeast1.firebasedatabase.app/")
@@ -79,16 +85,17 @@ class viewNovels : AppCompatActivity() {
         updateNote.setOnClickListener {
             linearUpdate.visibility = View.VISIBLE
             viewTitle.visibility = View.GONE
-            viewDesc.visibility = View.GONE
+            viewPenulis.visibility = View.GONE
             upTitle.setText(viewTitle.text)
-            upDesc.setText(viewDesc.text)
+            upDesc.setText(viewPenulis.text)
+            upSyn.setText(viewSyn.text)
             Glide.with(this).load(avatar).into(upAva)
         }
 
         btnCloseUpdate.setOnClickListener {
             linearUpdate.visibility = View.GONE
             viewTitle.visibility = View.VISIBLE
-            viewDesc.visibility = View.VISIBLE
+            viewPenulis.visibility = View.VISIBLE
         }
 
         btnUpdateNote.setOnClickListener {
@@ -156,6 +163,7 @@ class viewNovels : AppCompatActivity() {
     private fun updateNote() {
         val updatedTitle = upTitle.text.toString()
         val updatedDesc = upDesc.text.toString()
+        val updateSyn = upSyn.text.toString()
 
         if (updatedTitle.isEmpty() || updatedDesc.isEmpty()) {
             Toast.makeText(this, "Judul dan Deskripsi tidak boleh kosong!", Toast.LENGTH_SHORT).show()
@@ -165,7 +173,8 @@ class viewNovels : AppCompatActivity() {
         CoroutineScope(Dispatchers.IO).launch {
             val note = mapOf(
                 "title" to updatedTitle,
-                "description" to updatedDesc
+                "penulis" to updatedDesc,
+                "sinopsis" to updateSyn
             )
             notedb.updateChildren(note).await()
             imageUri?.let {
@@ -176,9 +185,10 @@ class viewNovels : AppCompatActivity() {
                 Toast.makeText(this@viewNovels, "Note updated successfully", Toast.LENGTH_SHORT).show()
                 linearUpdate.visibility = View.GONE
                 viewTitle.visibility = View.VISIBLE
-                viewDesc.visibility = View.VISIBLE
+                viewPenulis.visibility = View.VISIBLE
                 viewTitle.text = updatedTitle
-                viewDesc.text = updatedDesc
+                viewPenulis.text = updatedDesc
+                viewSyn.text = updateSyn
                 imageUri?.let {
                     Glide.with(this@viewNovels).load(it).into(viewAva)
                 }

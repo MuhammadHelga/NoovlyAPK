@@ -28,11 +28,12 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="30dp"
-        android:layout_marginTop="48dp"
+        android:layout_marginTop="40dp"
         android:layout_marginEnd="30dp"
-        android:text="Description"
+        android:text="Penulis"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/vTittle" />
 
@@ -41,13 +42,13 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="40dp"
-        android:layout_marginTop="280dp"
+        android:layout_marginTop="148dp"
         android:layout_marginEnd="40dp"
         android:text="Update Note"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/vDesc" />
+        app:layout_constraintTop_toBottomOf="@+id/vSyn" />
 
     <Button
         android:id="@+id/btn_ext"
@@ -75,6 +76,20 @@
         app:layout_constraintTop_toTopOf="parent"
         tools:srcCompat="@tools:sample/avatars" />
 
+    <TextView
+        android:id="@+id/vSyn"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="30dp"
+        android:text="Sinopsis"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/vDesc" />
+
     <LinearLayout
         android:id="@+id/lin_upt"
         android:layout_width="0dp"
@@ -90,7 +105,7 @@
         <ImageView
             android:id="@+id/upt_Ava"
             android:layout_width="150dp"
-            android:layout_height="150dp"
+            android:layout_height="200dp"
             android:layout_gravity="center"
             android:layout_marginTop="30dp"
             tools:srcCompat="@tools:sample/avatars" />
@@ -122,7 +137,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
             android:layout_marginTop="30dp"
-            android:text="Deskripsi"
+            android:text="Penulis"
             android:textSize="24sp" />
 
         <EditText
@@ -134,17 +149,38 @@
             android:layout_marginEnd="10dp"
             android:cursorVisible="false"
             android:ems="10"
-            android:hint="Ubah Deskripsi"
+            android:hint="Ubah Penulis"
             android:inputType="text"
             android:textSize="24sp"
             android:visibility="visible" />
+
+        <TextView
+            android:id="@+id/textView5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="30dp"
+            android:text="Sinopsis"
+            android:textSize="24sp" />
+
+        <EditText
+            android:id="@+id/upt_syn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="10dp"
+            android:ems="10"
+            android:hint="Ubah Sinopsis"
+            android:inputType="text"
+            android:textSize="24sp" />
 
         <Button
             android:id="@+id/btUp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
-            android:layout_marginTop="300dp"
+            android:layout_marginTop="100dp"
             android:layout_marginEnd="20dp"
             android:text="Update"
             android:textSize="20sp" />
@@ -159,6 +195,7 @@
             android:layout_marginBottom="10dp"
             android:text="Batal Update"
             android:textSize="20sp" />
+
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

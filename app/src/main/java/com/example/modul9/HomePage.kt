@@ -208,10 +208,12 @@ class HomePage : AppCompatActivity(), View.OnClickListener {
     private fun saveNoteData(noteId: String, imageUrl: String) {
         val title = etTitle?.text.toString()
         val desc = etDesc?.text.toString()
+        val syn = etSyn?.text.toString()
         val noovly = Noovly(
             id = noteId,
             title = title,
-            description = desc,
+            penulis = desc,
+            sinopsis = syn,
             avatar = imageUrl
         )
         notedb.child(noteId).setValue(noovly).addOnSuccessListener {
