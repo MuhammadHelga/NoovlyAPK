@@ -15,21 +15,19 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageButton
 import android.widget.ImageView
-import android.widget.LinearLayout
 import android.widget.ScrollView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.google.firebase.Firebase
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
-import com.google.firebase.storage.storage
+import com.google.firebase.storage.FirebaseStorage
 import java.io.ByteArrayOutputStream
 import java.io.IOException
 
@@ -42,15 +40,17 @@ class HomePage : AppCompatActivity(), View.OnClickListener {
     private var etTitle: EditText? = null
     private var etDesc: EditText? = null
     private var etSyn: EditText? = null
-    private lateinit  var ava: ImageView
-    private lateinit  var darkness: ImageView
-    private lateinit  var popup: ScrollView
+    private lateinit var ava: ImageView
+    private lateinit var darkness: ImageView
+    private lateinit var popup: ScrollView
     private lateinit var btnSubmit: Button
     private lateinit var btnBatal: Button
     private lateinit var recyclerView: RecyclerView
     private lateinit var noteAdapter: NoteAdapter
     private lateinit var notedb: DatabaseReference
     private var noovlyList: MutableList<Noovly> = mutableListOf()
+
+    private val DEFAULT_IMAGE_URL = "https://upload.wikimedia.org/wikipedia/commons/1/14/No_Image_Available.jpg"
 
     @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -77,7 +77,7 @@ class HomePage : AppCompatActivity(), View.OnClickListener {
         noteAdapter = NoteAdapter(this, noovlyList)
         recyclerView.adapter = noteAdapter
 
-        addNovel.setOnClickListener{
+        addNovel.setOnClickListener {
             popup.visibility = View.VISIBLE
             darkness.visibility = View.VISIBLE
         }
@@ -116,11 +116,11 @@ class HomePage : AppCompatActivity(), View.OnClickListener {
         })
 
         ava.setOnClickListener {
-            selectimage()
+            selectImage()
         }
     }
 
-    private fun selectimage() {
+    private fun selectImage() {
         val items = arrayOf<CharSequence>("Take Photo", "Choose from Library", "Cancel")
         val builder = AlertDialog.Builder(this)
         builder.setIcon(R.mipmap.ic_launcher)
@@ -171,28 +171,35 @@ class HomePage : AppCompatActivity(), View.OnClickListener {
         }
     }
 
-    private fun uploadImg(noteId: String) {
+    private fun uploadImg(noteId: String, onComplete: (String) -> Unit) {
         ava.isDrawingCacheEnabled = true
         ava.buildDrawingCache()
-        val bitmap = (ava.drawable as BitmapDrawable).bitmap
-        val baos = ByteArrayOutputStream()
-        bitmap.compress(Bitmap.CompressFormat.JPEG, 100, baos)
-        val data = baos.toByteArray()
+        val drawable = ava.drawable
+        if (drawable is BitmapDrawable) {
+            val bitmap = drawable.bitmap
+            val baos = ByteArrayOutputStream()
+            bitmap.compress(Bitmap.CompressFormat.JPEG, 100, baos)
+            val data = baos.toByteArray()
 
-        val storage = Firebase.storage
-        val storageRef = storage.reference.child("images/$noteId.jpeg")
-        val uploadTask = storageRef.putBytes(data)
-        uploadTask.addOnFailureListener { exception ->
-            Toast.makeText(this, "Failed to upload image: ${exception.message}", Toast.LENGTH_SHORT).show()
-        }.addOnSuccessListener { taskSnapshot ->
-            taskSnapshot.metadata?.reference?.downloadUrl?.addOnCompleteListener { task ->
-                if (task.isSuccessful) {
-                    val downloadUrl = task.result.toString()
-                    saveNoteData(noteId, downloadUrl)
-                } else {
-                    Toast.makeText(this, "Failed to get download URL", Toast.LENGTH_SHORT).show()
+            val storage = FirebaseStorage.getInstance()
+            val storageRef = storage.reference.child("images/$noteId.jpeg")
+            val uploadTask = storageRef.putBytes(data)
+            uploadTask.addOnFailureListener { exception ->
+                Toast.makeText(this, "Failed to upload image: ${exception.message}", Toast.LENGTH_SHORT).show()
+                onComplete(DEFAULT_IMAGE_URL)
+            }.addOnSuccessListener { taskSnapshot ->
+                taskSnapshot.metadata?.reference?.downloadUrl?.addOnCompleteListener { task ->
+                    if (task.isSuccessful) {
+                        val downloadUrl = task.result.toString()
+                        onComplete(downloadUrl)
+                    } else {
+                        Toast.makeText(this, "Failed to get download URL", Toast.LENGTH_SHORT).show()
+                        onComplete(DEFAULT_IMAGE_URL)
+                    }
                 }
             }
+        } else {
+            onComplete(DEFAULT_IMAGE_URL)  // Use default image URL if no image is set
         }
     }
 
@@ -238,7 +245,9 @@ class HomePage : AppCompatActivity(), View.OnClickListener {
             return
         }
         val noteId = notedb.push().key ?: return
-        uploadImg(noteId)
+        uploadImg(noteId) { imageUrl ->
+            saveNoteData(noteId, imageUrl)
+        }
         popup.visibility = View.GONE
         darkness.visibility = View.GONE
     }
