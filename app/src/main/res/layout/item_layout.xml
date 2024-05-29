@@ -38,8 +38,10 @@
             android:layout_marginLeft="12dp"
             android:layout_marginTop="5dp"
             android:layout_marginRight="12dp"
+            android:ellipsize="end"
             android:fontFamily="@font/poppins_bold"
             android:gravity="center_horizontal"
+            android:maxLines="1"
             android:text="TextView"
             android:textColor="#112D4E"
             android:textSize="24sp" />
@@ -53,9 +55,10 @@
             android:layout_marginTop="10dp"
             android:layout_marginRight="12dp"
             android:layout_marginBottom="10dp"
-            android:background="#DF3535"
-            android:backgroundTint="#DF3535"
+            android:background="@drawable/bg_del"
             android:contentDescription="null"
+            android:paddingTop="5dp"
+            android:paddingBottom="5dp"
             app:srcCompat="@drawable/delete" />
     </LinearLayout>
 

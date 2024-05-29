@@ -16,6 +16,7 @@ import android.widget.EditText
 import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.LinearLayout
+import android.widget.ScrollView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
@@ -43,7 +44,7 @@ class HomePage : AppCompatActivity(), View.OnClickListener {
     private var etSyn: EditText? = null
     private lateinit  var ava: ImageView
     private lateinit  var darkness: ImageView
-    private lateinit  var popup: LinearLayout
+    private lateinit  var popup: ScrollView
     private lateinit var btnSubmit: Button
     private lateinit var btnBatal: Button
     private lateinit var recyclerView: RecyclerView
@@ -82,6 +83,11 @@ class HomePage : AppCompatActivity(), View.OnClickListener {
         }
 
         btnBatal.setOnClickListener {
+            popup.visibility = View.GONE
+            darkness.visibility = View.GONE
+        }
+
+        darkness.setOnClickListener {
             popup.visibility = View.GONE
             darkness.visibility = View.GONE
         }
@@ -233,6 +239,8 @@ class HomePage : AppCompatActivity(), View.OnClickListener {
         }
         val noteId = notedb.push().key ?: return
         uploadImg(noteId)
+        popup.visibility = View.GONE
+        darkness.visibility = View.GONE
     }
 
     private fun validateForm(): Boolean {

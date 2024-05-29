@@ -36,6 +36,7 @@
             android:layout_weight="1"
             android:fontFamily="@font/poppins_medium"
             android:gravity="center_vertical"
+            android:paddingLeft="5dp"
             android:text=" User!"
             android:textColor="#F9F7F7"
             android:textSize="20sp" />
@@ -112,105 +113,111 @@
         app:layout_constraintTop_toBottomOf="@id/bar"
         app:srcCompat="@drawable/darkness" />
 
-    <LinearLayout
+    <ScrollView
         android:id="@+id/popup"
         android:layout_width="350dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
+        android:layout_marginLeft="20dp"
         android:layout_marginTop="100dp"
-        android:layout_marginEnd="20dp"
+        android:layout_marginRight="20dp"
         android:layout_marginBottom="100dp"
         android:background="@drawable/popup"
-        android:orientation="vertical"
         android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <ImageView
-            android:id="@+id/add_cover"
-            android:layout_width="100dp"
-            android:layout_height="150dp"
-            android:layout_gravity="center"
-            android:layout_marginTop="20dp"
-            android:scaleType="centerCrop"
-            android:src="@drawable/add_cover" />
-
-        <EditText
-            android:id="@+id/add_judul"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
-            android:layout_marginTop="20dp"
-            android:layout_marginEnd="10dp"
-            android:background="@drawable/round_form"
-            android:ems="10"
-            android:fontFamily="@font/poppins_medium"
-            android:hint="Judul"
-            android:inputType="text"
-            android:minHeight="48dp"
-            android:paddingStart="20dp"
-            android:textSize="16sp" />
+            android:orientation="vertical">
 
-        <EditText
-            android:id="@+id/add_penulis"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginEnd="10dp"
-            android:background="@drawable/round_form"
-            android:ems="10"
-            android:fontFamily="@font/poppins_medium"
-            android:hint="Penulis"
-            android:inputType="text"
-            android:minHeight="48dp"
-            android:paddingStart="20dp"
-            android:textSize="16sp" />
+            <ImageView
+                android:id="@+id/add_cover"
+                android:layout_width="120dp"
+                android:layout_height="170dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="20dp"
+                android:padding="20dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/add_cover" />
 
-        <EditText
-            android:id="@+id/add_sinopsis"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginEnd="10dp"
-            android:background="@drawable/round_form"
-            android:ems="10"
-            android:fontFamily="@font/poppins_medium"
-            android:hint="Sinopsis"
-            android:inputType="text"
-            android:minHeight="48dp"
-            android:paddingStart="20dp"
-            android:textSize="16sp" />
+            <EditText
+                android:id="@+id/add_judul"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="10dp"
+                android:background="@drawable/round_form"
+                android:ems="10"
+                android:fontFamily="@font/poppins_medium"
+                android:hint="Judul"
+                android:inputType="text"
+                android:minHeight="48dp"
+                android:paddingStart="20dp"
+                android:textSize="16sp" />
 
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/btn_submit"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="15dp"
-            android:layout_marginTop="25dp"
-            android:layout_marginEnd="15dp"
-            android:layout_marginBottom="10dp"
-            android:background="@drawable/bg_sub_bar"
-            android:fontFamily="@font/poppins_semibold"
-            android:text="Tambah"
-            android:textColor="#F9F7F7"
-            android:textSize="20sp" />
+            <EditText
+                android:id="@+id/add_penulis"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="10dp"
+                android:background="@drawable/round_form"
+                android:ems="10"
+                android:fontFamily="@font/poppins_medium"
+                android:hint="Penulis"
+                android:inputType="text"
+                android:minHeight="48dp"
+                android:paddingStart="20dp"
+                android:textSize="16sp" />
 
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/btn_batal"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="15dp"
-            android:layout_marginEnd="15dp"
-            android:layout_marginBottom="15dp"
-            android:background="@drawable/bg_sub_bar"
-            android:fontFamily="@font/poppins_semibold"
-            android:text="Batal"
-            android:textColor="#F9F7F7"
-            android:textSize="20sp" />
-    </LinearLayout>
+            <EditText
+                android:id="@+id/add_sinopsis"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="10dp"
+                android:background="@drawable/round_form"
+                android:ems="10"
+                android:fontFamily="@font/poppins_medium"
+                android:hint="Sinopsis"
+                android:inputType="textMultiLine"
+                android:minHeight="48dp"
+                android:paddingStart="20dp"
+                android:textSize="16sp" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btn_submit"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="25dp"
+                android:layout_marginEnd="15dp"
+                android:layout_marginBottom="10dp"
+                android:background="@drawable/bg_sub_bar"
+                android:fontFamily="@font/poppins_semibold"
+                android:text="Tambah"
+                android:textColor="#F9F7F7"
+                android:textSize="20sp" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btn_batal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:layout_marginEnd="15dp"
+                android:layout_marginBottom="15dp"
+                android:background="@drawable/bg_sub_bar"
+                android:fontFamily="@font/poppins_semibold"
+                android:text="Batal"
+                android:textColor="#F9F7F7"
+                android:textSize="20sp" />
+        </LinearLayout>
+    </ScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

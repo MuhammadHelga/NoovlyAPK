@@ -13,6 +13,7 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageView
 import android.widget.LinearLayout
+import android.widget.ScrollView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
@@ -39,7 +40,8 @@ class viewNovels : AppCompatActivity() {
     private lateinit var viewSyn: TextView
     private  lateinit var viewAva: ImageView
     private lateinit var updateNote: Button
-    private lateinit var linearUpdate: LinearLayout
+//    private lateinit var linearUpdate: LinearLayout
+    private lateinit var scroll_update: ScrollView
     private lateinit var upTitle: EditText
     private lateinit var upDesc: EditText
     private lateinit var upSyn: EditText
@@ -60,7 +62,8 @@ class viewNovels : AppCompatActivity() {
         viewAva = findViewById(R.id.vAva)
         updateNote = findViewById(R.id.btn_update)
         val keluar: Button = findViewById(R.id.btn_ext)
-        linearUpdate = findViewById(R.id.lin_upt)
+//        linearUpdate = findViewById(R.id.lin_upt)
+        scroll_update = findViewById(R.id.scroll_update)
         upTitle = findViewById(R.id.upt_tittle)
         upDesc = findViewById(R.id.upt_desc)
         upSyn = findViewById(R.id.upt_syn)
@@ -83,7 +86,8 @@ class viewNovels : AppCompatActivity() {
             .getReference("Noovly").child(noteId!!)
 
         updateNote.setOnClickListener {
-            linearUpdate.visibility = View.VISIBLE
+//            linearUpdate.visibility = View.VISIBLE
+            scroll_update.visibility = View.VISIBLE
             viewTitle.visibility = View.GONE
             viewPenulis.visibility = View.GONE
             upTitle.setText(viewTitle.text)
@@ -93,7 +97,8 @@ class viewNovels : AppCompatActivity() {
         }
 
         btnCloseUpdate.setOnClickListener {
-            linearUpdate.visibility = View.GONE
+//            linearUpdate.visibility = View.GONE
+            scroll_update.visibility = View.GONE
             viewTitle.visibility = View.VISIBLE
             viewPenulis.visibility = View.VISIBLE
         }
@@ -183,7 +188,8 @@ class viewNovels : AppCompatActivity() {
             }
             withContext(Dispatchers.Main) {
                 Toast.makeText(this@viewNovels, "Note updated successfully", Toast.LENGTH_SHORT).show()
-                linearUpdate.visibility = View.GONE
+//                linearUpdate.visibility = View.GONE
+                scroll_update.visibility = View.GONE
                 viewTitle.visibility = View.VISIBLE
                 viewPenulis.visibility = View.VISIBLE
                 viewTitle.text = updatedTitle
